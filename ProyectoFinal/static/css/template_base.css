@@ -1,0 +1,215 @@
+body, html {
+    width: 100%;
+    height: auto;
+    font: 1em/1.618 Inter, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    color: #224;
+    background: url("../imagenes/Portada/backgroundWeb.png") center/cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.menuGlobal {
+    z-index: 1000;
+    height: 12%;
+    width: 95%;
+    padding: 5px;
+    display: flex;    
+    position: fixed;
+    top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #D88C9A;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+}
+
+#contenedor-principal {
+    margin: auto;
+    margin-top: 300px;
+    height: 90%;
+   min-height: 50vh;
+    width: 90%;
+    display: flex;        /* Activa Flexbox */
+    flex: 6;
+    
+}
+
+
+.logo {
+    border-radius: 10px;
+    margin: auto;
+    width: 10%; 
+    height: auto; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.logo img {
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo a{
+    width: auto;
+}
+
+
+.profile{
+    margin: auto;
+    width: 10%;
+    
+    
+}
+.profile img {
+    width: 120%;
+    height: auto; 
+    margin: auto;
+    border-radius: 50%;
+    box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    height: 50%;
+    text-decoration: none;
+    align-content: center;
+}
+
+.container ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+.container ul li {
+    position: relative;
+    list-style-type: none;
+    text-decoration: none;
+    margin-right: 50px;
+    cursor: pointer;
+    color: #F8F8F8;
+    font-size: 0.8em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+}
+
+.container ul li:last-child {
+    margin-right: 0px;
+}
+
+.container ul li:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    height: 100%;
+    width: 100%;
+}
+
+.container ul li:nth-child(1):after {
+    background: #8E7DBE;
+    clip-path: polygon(6% 10%, 100% 0, 64% 65%, 28% 65%);
+}
+
+.container ul li:nth-child(2):after {
+    background: #F1E3D3;
+    clip-path: polygon(61% 0%, 100% 19%, 71% 100%, 0% 100%);
+}
+
+.container ul li:nth-child(3):after {
+    background: #F2D0A9;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 99%, 0% 57%);
+}
+
+.container ul li:nth-child(4):after {
+    background: #D88C9A;
+    clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+}
+
+.container ul li:hover:after {
+    animation: boink 1s ease forwards 1;
+}
+
+@keyframes boink {
+    80% {
+        transform: scaleX(1.9) scaleY(0.6) translateX(-30%);
+    }
+}
+
+@media (max-width: 600px) {
+    .container ul li {
+        font-size: 15px;
+    }
+
+    body{
+    background: url("./imagenes/Portada/backgroundWeb.png") center/cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+  
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #F8F8F8;
+    padding: 15px;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-section p{
+    font-size: 0.6em;
+}
+
+
+.social-icons {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos para los iconos de redes sociales (puedes usar tus propios iconos aquí) */
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Sombras de colores pasteles */
+.footer-section {
+    width: 30%;
+    flex: 1;
+    text-align: center;
+  
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.footer-section img {
+    max-height: 80px;
+    max-width: 100px;
+}
+
+.mobile-menu {
+    display: none;
+}
