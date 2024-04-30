@@ -220,7 +220,7 @@ footer {
 }
 
 .menu-perfil{
-    display: none;
+    /* display: none; */
     border-radius: 10px;
     width: 200px;
     height: auto;
