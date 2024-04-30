@@ -56,4 +56,22 @@ function switchForm() {
     alert("Iniciando sesión con Google...");
   }
   
-  
+
+// menuProfile
+// Script para mostrar/ocultar el menú perfil al hacer clic en la foto de perfil
+document.addEventListener("DOMContentLoaded", function() {
+  // Aquí va tu código JavaScript
+  document.getElementById("profile").addEventListener("click", function() {
+      var menuPerfil = document.getElementById("menuPerfil");
+      if (menuPerfil.style.display === "block") {
+          menuPerfil.style.display = "none";
+      } else {
+          menuPerfil.style.display = "block";
+      }
+  });
+
+  document.querySelector(".hamburguesa").addEventListener("click", function() {
+      document.querySelector(".menuGlobal .container").classList.toggle("show");
+  });
+});
+

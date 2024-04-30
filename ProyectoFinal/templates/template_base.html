@@ -37,26 +37,23 @@
      <div>
         {% if request.user.is_authenticated %}
             {% if request.user.img_perfil %}
-                <div class="profile">
-                    <img src="{{ request.user.img_perfil.url }}" alt="profile" width="50px" height="50px">
-                    
-
-                        <ul class="menu-perfil">
-                            <p><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></p>
-                            <p><a href="#">Enviar Feedback</a></p>
-                            <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
-                        </ul>
-                </div>
-                    
-            {% else %}
-                <!-- Si el usuario no tiene imagen de perfil, mostrar una imagen predeterminada -->
-                <div class="profile">
-                    <img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px">
-                    <div class="dropdown-content">
-                        <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a>
-                        <a href="#">Enviar Feedback</a>
-                        <a href="{% url 'logout' %}">Cerrar Sesión</a>
-                    </div>
+            <div class="profile" id="profile">
+                <img src="{{ request.user.img_perfil.url }}" alt="profile" width="50px" height="50px">
+                <ul class="menu-perfil" id="menuPerfil">
+                    <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
+                    <li><a href="#">Enviar Feedback</a></li>
+                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        {% else %}
+            <!-- Si el usuario no tiene imagen de perfil, mostrar una imagen predeterminada -->
+            <div class="profile" id="profile">
+                <img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px">
+                <ul class="menu-perfil" id="menuPerfil">
+                    <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
+                    <li><a href="#">Enviar Feedback</a></li>
+                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                </ul>
                 </div>
             {% endif %}
         {% else %}
@@ -127,6 +124,7 @@
         </div>
     </footer>
 
-
+    <script src="{% static 'js/script.js' %}"></script>
     </body>
+    <script src="{% static 'js/script.js' %}"></script>
 </html>

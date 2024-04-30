@@ -53,9 +53,9 @@ body, html {
 }
 
 .logo img {
-    width: 50px;
+    width: 80px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -70,14 +70,15 @@ body, html {
     width: 10%; 
     height: auto; 
     display: flex;
+    flex-direction: column;
     justify-content: center; 
     align-items: center; 
     
 }
 .profile img {
-    width: 50px;
+    width: 80px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -218,6 +219,16 @@ footer {
     max-width: 100px;
 }
 
-/* .mobile-menu {
+.menu-perfil{
     display: none;
-} */
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    background-color: #D88C9A;
+}
+
+.menu-perfil a{
+    list-style: none;
+    text-decoration: none;
+    color: #F8F8F8;
+}
