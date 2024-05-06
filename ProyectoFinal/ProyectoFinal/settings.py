@@ -32,14 +32,13 @@ LOCAL_APPS = [
     'apps.auth_user',
     'apps.custom_user',
     'apps.alumno',
-    'apps.calificacion',
     'apps.carrera',
     'apps.cursada',
-    'apps.detalle_calificacion',
     'apps.institucion',
     'apps.materia',
     'apps.opinion',
     'apps.profesor',
+    'apps.feedback',
 ]
 
 # Application definition
@@ -153,9 +152,9 @@ LOGIN_URL = '/auth/login'
 
 ####### Configuración para enviar correos electrónicos #######
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'your-email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'your-email-password'
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'm.e.b.d.0904@ifts18.edu.ar'
+EMAIL_HOST_PASSWORD = 'Daimibb#97'

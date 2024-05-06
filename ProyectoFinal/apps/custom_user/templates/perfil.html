@@ -18,7 +18,7 @@
     
         <div class="perfilContainer">
             <menu>
-                <a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a>
+                <a href="{% url 'editar_usuario' usuario.id %}"><button type="button" class="btn-editar">Editar Usuario</button></a>
                 <ul>
                     <li>Nombre:{{ usuario.nombre }}</li>
                     <li>Email: {{ usuario.email }}</li>
@@ -26,7 +26,7 @@
                 </ul>
             </menu>
             <a href="{% url 'eliminar_usuario' usuario.id %}">
-                <button type="button">Eliminar Usuario</button>
+                <button type="button" class="btn-eliminar">Eliminar Usuario</button>
             </a>
         </div>
     </div>
