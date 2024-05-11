@@ -20,67 +20,69 @@
     <body>
         <!-- header.html -->
         <header>
-        <div class="menuGlobal">
-            <div class="logo">
-                <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/genioLogo.jpg' %}" alt="Logo"></a>
-            </div>
-            
-            <nav class="menuDiv">
-                <ul>
-                    <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
-                            
-                    <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
-                    
-                    <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+             <div class="menuGlobal">
+                <div class="logo">
+                    <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="Logo"></a>
+                </div>
+                
+                <nav class="menuDiv">
+                    <ul>
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
 
-                    <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
-                </ul>
-            </nav>
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
+                    </ul>
+                </nav>
         
  <!-- ################ NAVEGADOR MOVIL ######################## -->
  
-        <details>
-            <summary class="divSummary"></summary>
-        
-            <nav class="menuMobile">
-                <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
-                        
-                <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                <details>
+                    <summary class="divSummary"></summary>
                 
-                <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+                    <nav class="menuMobile">
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
 
-                <li><a href="{% url 'lista_profesores'%}">Docentes</a></li> 
-            </nav>
-        </details>
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li> 
+                    </nav>
+                </details>
   
             <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
         
 
 
 
-            <div>
-            <!-- IMG DE PERFIL -->           
-            {% if request.user.is_authenticated %}
-                <nav class="nav-menu-principal">
-                    <img src="{{ request.user.img_perfil.url }}" alt="profile" class="img_perfil">
-                    <div class="div-menu-desplegable">                        
-                        <!-- class="menu-perfil" -->
-                        <ul id="menu_desplegable">
-                            <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
-                            <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
-                            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
-                        </ul>
-                    </div>
-            </nav>               
-            {% else %}
-                <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
-                <a href="{% url 'login' %}">Iniciar sesión</a>
-            {% endif %}
-        </div>
-
-           
+                <div>
+                <!-- IMG DE PERFIL -->           
+                    {% if request.user.is_authenticated %}
+                        <nav class="nav-menu-principal">
+                            <img src="{{ request.user.img_perfil.url }}" alt="profile" class="img_perfil">
+                            <div class="div-menu-desplegable">                        
+                                <!-- class="menu-perfil" -->
+                                <ul id="menu_desplegable">
+                                    <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
+                                    <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
+                                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                    </nav>               
+                    {% else %}
+                        <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    {% endif %}
+                </div>
             </div>
+            
         </header>
+        <div class="bannerVideo">
+            <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
+        </div>
 
     <!-- ################ FIN HEADER ############################## -->
 

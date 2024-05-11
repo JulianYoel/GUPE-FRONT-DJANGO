@@ -24,7 +24,7 @@ header {
 .menuGlobal{
     width: 100%;
     height: 100%;
-    margin: auto;
+
     align-items: center;
     display: flex;
     justify-content: space-around;
@@ -33,14 +33,15 @@ header {
 
 
 .logo  {
-  width: 100px; 
+  width: 250px; 
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .logo img{
-    width: 50px;
-    
+    width: 100px;
+    margin-top: 50px;    
 }
 
 .menuDiv {
@@ -82,11 +83,28 @@ header {
 
 
 #contenedor-principal {
-    margin-top: 16%;
+    margin-top: 8%;
     width: 100%;
     display: flex;        /* Activa Flexbox */
     flex-direction: column; /* Alinea los hijos verticalmente */
+    justify-content: center;
+    align-items: center;
+}
 
+
+/* video header */
+.bannerVideo {
+    width: 100%;
+    height: 350px; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+.bannerVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
 
@@ -170,5 +188,8 @@ footer {
     .divSummary{
         display:block;
     }
+    .logo  {
+        width: auto; 
+    }      
   }
   
