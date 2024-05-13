@@ -14,13 +14,20 @@
         <section class="loginHome">  
           <div class="encabezado">
               <div class="logoLogin">
-                <img src="/static/imagenes/Logo/genioLogo.png" alt="">
+<<<<<<< HEAD
+                <img id="imgLogin1" src="/static/imagenes/Logo/genioLogo.png" alt="">
+                <img id="imgLogin2" src="/static/imagenes/Logo/genioLogo2.png" alt="">
+
+=======
+                <img src="/static/imagenes/Logo/genioLogo.png" alt="logo">
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
               </div>
               <div class="textoLogin">
                 <h1>G.E.N.I.O</h1>
                 <h2>Guía de Estudiantes Nuevos de IFTS para Orientación</h2>
               </div>
             </div>
+<<<<<<< HEAD
 <!--             
           <div class="switch-container">
             <p id="leftLabel">Ingresar</p>
@@ -31,11 +38,15 @@
             <p id="rightLabel">Cuenta Nueva</p>
           </div>
            -->
+=======
+
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
          
         <!-- ///////////////////////////////////// LOGIN /////////////////////////////////////////////-->
             <div class="form-container">
               <div class="loginCardFondo">
                 <div class="card" id="loginCard">
+<<<<<<< HEAD
                     <h2>Iniciar Sesión</h2>
                     <form id="LoginForm" method="post" class="formLogin">
                         {% csrf_token %}
@@ -73,6 +84,39 @@
                       data-your_own_param_1_to_login="any_value"
                       data-your_own_param_2_to_login="any_value">
                     </div> 
+=======
+
+                    <h2>Iniciar Sesión</h2>
+                    <form id="LoginForm" method="post" class="formLogin">
+                        {% csrf_token %}
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="{{ form.username.id_for_label }}"
+                            name="{{ form.username.name }}"
+                            placeholder="Email"
+                            required
+                        />
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="{{ form.password.id_for_label }}"
+                            name="password"
+                            placeholder="Contraseña"
+                            required
+                        />
+                        <button type="submit" id="loginButton">Ingresar</button>
+                    </form>
+
+                    {% for message in messages %}
+                    <div class="mdl-textfield">
+                        <p class="error-message">{{ message }}</p>
+                    </div>
+                    {% endfor %}
+
+                    <button type="button" onclick="google_auth()" id="googleboton1">Ingresá con Google</button>
+                    ----------------------------------------------------------------------------------------------------------------
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
                     <button id="toggleButton">O registrate <b>acá</b></button>
                 </div>
                 <div class="loginFondoTexto">
@@ -112,7 +156,7 @@
                             name="password2"
                             placeholder="Contraseña"
                         />
-                        <select id="userType">
+                        <select title="tipo-user" id="userType">
                             <option value="visitante">Visitante</option>
                             <option value="alumno">Alumno</option>
                             <option value="docente">Docente</option>

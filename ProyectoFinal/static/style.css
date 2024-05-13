@@ -28,10 +28,18 @@ html, body{
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
-.logoLogin img{
+#imgLogin1{
   width: 120px;
+  position: absolute;
 }
+#imgLogin2{
+  width: 120px;
+  position: absolute;
+  animation: titileo 2s linear infinite;
+}
+
 .textoLogin{
   display: flex;
   flex-direction: column;
@@ -225,6 +233,15 @@ html, body{
   width: 200px;
   height: 50px;
   font-size: 14px;
+}
+
+@keyframes titileo{
+  from, 50%, to{
+    opacity: 1;
+  }
+  25%, 75%{
+    opacity: 0;
+  }
 }
 
 

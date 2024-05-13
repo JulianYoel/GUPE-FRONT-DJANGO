@@ -1,24 +1,51 @@
 .SeccionIfts{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     align-items: center;
     width: 100%;
     height: auto;
     border: 5px solid red;
     justify-content: center;
+<<<<<<< HEAD
+}
+.textoSeccion{
+    width: 30%;
+    background-color: blueviolet;
+    border-radius: 15px;
+    color: white;
+}
+.iftsYopiniones{
+    width: 100%;
+    border: 5px solid green;
+    display: flex;
+    flex-direction: column;
+=======
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 }
 
 .ifts{
     display: grid;
+<<<<<<< HEAD
+    width: 70%;
+=======
     width: 95%;
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
     border-radius: 20px;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 20px;  
     text-align: center;
     justify-content: center;
     border: 5px solid blue;
+<<<<<<< HEAD
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 500px;
+    margin: auto;
+=======
    
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 }
 .ulIfts{
     width: 300px;
@@ -81,5 +108,12 @@
 
 }
 
-
+<<<<<<< HEAD
+.seccionOpiniones{
+    height: 100%;
+    border: 5px solid violet;
+    height: 200px;
+}
+=======
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 

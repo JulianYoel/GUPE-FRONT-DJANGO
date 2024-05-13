@@ -34,6 +34,32 @@ header {
 
 .logo  {
   width: 250px; 
+<<<<<<< HEAD
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#logoUserHome1{
+    width: 100px;
+    margin-top: 50px;  
+    position: absolute; 
+   
+}
+#logoUserHome2{
+    width: 100px;
+    margin-top: 50px; 
+    animation: titileoUserHome 2s linear infinite;
+}
+
+.menuDiv {
+    width:100%;
+    text-decoration: none;
+    align-items: center;
+}
+
+=======
 
   display: flex;
   align-items: center;
@@ -50,6 +76,7 @@ header {
     align-items: center;
 }
 
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 .menuDiv ul {
     display: flex;
     text-decoration: none;
@@ -83,7 +110,11 @@ header {
 
 
 #contenedor-principal {
+<<<<<<< HEAD
+    
+=======
     margin-top: 8%;
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
     width: 100%;
     display: flex;        /* Activa Flexbox */
     flex-direction: column; /* Alinea los hijos verticalmente */
@@ -171,9 +202,22 @@ footer {
     margin-right: 10px;
 }
 
+<<<<<<< HEAD
+@keyframes titileoUserHome{
+    from, 50%, to{
+      opacity: 1;
+    }
+    25%, 75%{
+      opacity: 0;
+    }
+  }
+  
+
+=======
 
 
 
+>>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 @media (max-width: 925px) {
     .menuDiv{
       display: none;
