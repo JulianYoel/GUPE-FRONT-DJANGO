@@ -20,22 +20,6 @@ document.getElementById('toggleButton').addEventListener('click', function() {
 
 
 
-
-// function switchForm() {
-//     var switchButton = document.getElementById("switchButton");
-//     var loginCard = document.getElementById("loginCard");
-//     var registerCard = document.getElementById("registerCard");
-  
-//     if (switchButton.checked) {
-     
-//       loginCard.style.display = "none";
-//       registerCard.style.display = "block";
-//     } else {
-    
-//       loginCard.style.display = "block";
-//       registerCard.style.display = "none";
-//     }
-// }
   
   document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -79,4 +63,21 @@ document.getElementById('toggleButton').addEventListener('click', function() {
     alert("Iniciando sesión con Google...");
   }
   
-  
+  // menuProfile
+// Script para mostrar/ocultar el menú perfil al hacer clic en la foto de perfil
+document.addEventListener("DOMContentLoaded", function() {
+  // Aquí va tu código JavaScript
+  document.getElementById("profile").addEventListener("click", function() {
+      var menuPerfil = document.getElementById("menuPerfil");
+      if (menuPerfil.style.display === "block") {
+          menuPerfil.style.display = "none";
+      } else {
+          menuPerfil.style.display = "block";
+      }
+  });
+
+  document.querySelector(".hamburguesa").addEventListener("click", function() {
+      document.querySelector(".menuGlobal .container").classList.toggle("show");
+  });
+});
+
