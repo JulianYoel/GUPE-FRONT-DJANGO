@@ -12,10 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-# from dotenv import load_dotenv
-
-# # Cargar las variables de entorno desde el archivo .env
-# load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +26,7 @@ SECRET_KEY = 'django-insecure-(-acc@a&^9pe#-7v-^b1ii3evm!0sw&f2j*wz(7@c2)j5qewr$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #'7886-181-99-163-64.ngrok-free.app'
 
 LOCAL_APPS = [
     'apps.auth_user',
@@ -43,12 +39,6 @@ LOCAL_APPS = [
     'apps.opinion',
     'apps.profesor',
     'apps.feedback',
-
-     #all auth configurations
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google'
 ]
 
 # Application definition
@@ -59,6 +49,10 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
@@ -168,34 +162,23 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'm.e.b.d.0904@ifts18.edu.ar'
-EMAIL_HOST_PASSWORD = 'Daimibb#97'
+EMAIL_HOST_PASSWORD = 'mfmagitimpoxeybu'
 
-####### Configuración para Google #######
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'SCOPE' : [
-#             'profile',
-#             'email'
-#         ],
-#         'APP': {
-#             'client_id': os.environ['CLIENT_ID'],
-#             'secret': os.environ['CLIENT_SECRET'],
-#         },
-#         'AUTH_PARAMS': {
-#             'access_type':'online',
-#         },
-#         'EXTRA_DATA': [
-#             ('id', 'id'),
-#             ('email', 'email'),
-#             ('verified_email', 'verified_email'),
-#             ('name', 'name'),
-#         ]
-#     }
-# }
-# SITE_ID = 2
+SITE_ID = 1
 
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend'
-# ]
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)

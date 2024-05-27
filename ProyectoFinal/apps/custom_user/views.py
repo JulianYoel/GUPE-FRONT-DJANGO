@@ -1,11 +1,17 @@
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import UpdateView, DeleteView, FormView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import CustomUserDeleteForm, CustomUserUpdateForm
-from .models import CustomUser
 from django.contrib.auth.mixins import LoginRequiredMixin
+from apps.institucion.models import Institucion
+from apps.profesor.models import Profesor
+from apps.opinion.models import Opinion
+from apps.carrera.models import Carrera
+from apps.materia.models import Materia
+from .forms import CustomUserDeleteForm, CustomUserUpdateForm, SearchForm
+from .models import CustomUser
+
 
 
 class UserHomeView(LoginRequiredMixin, TemplateView):
@@ -13,6 +19,7 @@ class UserHomeView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['opiniones'] = Opinion.objects.order_by('-fecha')[:5]  # Obtener las últimas 5 opiniones
         return context
     
 class CustomProfileView(TemplateView, LoginRequiredMixin):
@@ -66,27 +73,32 @@ class EliminarUsuarioView(LoginRequiredMixin, DeleteView):
     template_name = 'eliminar_usuario.html'
     success_url = '/'
 
+class SearchView(TemplateView):
+    template_name = 'resultado_busqueda.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        form = SearchForm(self.request.GET or None)
+        query = None
+        results = {
+            'institutos': [],
+            'carreras': [],
+            'materias': [],
+            'profesores': []
+        }
+
+        if 'query' in self.request.GET:
+            if form.is_valid():
+                query = form.cleaned_data['query']
+                results['institutos'] = Institucion.objects.filter(nombre__icontains=query)
+                results['carreras'] = Carrera.objects.filter(nombre__icontains=query)
+                results['materias'] = Materia.objects.filter(nombre__icontains=query)
+                results['profesores'] = Profesor.objects.filter(nombre__icontains=query)
+
+        context['form'] = form
+        context['query'] = query
+        context['results'] = results
+        return context
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def google_auth(request):
-    # Aquí deberías manejar la lógica de autenticación de Google
-    # Esto puede implicar redirigir al usuario a la URL de autenticación de Google y luego procesar el token devuelto por Google.
-    # Aquí solo redirigimos al usuario a la página de inicio por ahora.
-    return redirect('userHome')  # Cambia 'inicio' por el nombre de la URL de tu página de inicio

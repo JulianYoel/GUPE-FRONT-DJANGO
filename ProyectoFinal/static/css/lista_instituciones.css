@@ -5,9 +5,10 @@
     align-items: center;
     width: 100%;
     height: auto;
-    border: 5px solid red;
+    /* border: 5px solid red; */
     justify-content: center;
-<<<<<<< HEAD
+    padding-top: 50px;
+
 }
 .textoSeccion{
     width: 30%;
@@ -17,58 +18,52 @@
 }
 .iftsYopiniones{
     width: 100%;
-    border: 5px solid green;
+    /* border: 5px solid green; */
     display: flex;
     flex-direction: column;
-=======
->>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 }
 
 .ifts{
     display: grid;
-<<<<<<< HEAD
     width: 70%;
-=======
-    width: 95%;
->>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
-    border-radius: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
     grid-gap: 20px;  
     text-align: center;
     justify-content: center;
-    border: 5px solid blue;
-<<<<<<< HEAD
+    /* border: 5px solid blue; */
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 500px;
     margin: auto;
-=======
-   
->>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 }
 .ulIfts{
-    width: 300px;
+    width: auto;
     height: auto;
     list-style: none;
     text-decoration: none;
     padding: 0;
     margin: 0;
-    border: 5px solid yellow;
+    /* border: 1px solid yellow; */
+    display: flex;
+    justify-content: center;
 }
 
 
 
 .tarjetaIfts{ 
-   width: 100%;
-    height: auto;
+   width: 150px;
+   height: 250px;
+   
     display: flex;
     background-color: #043652;
     border-radius: 10px;
-
+    flex-direction: column;
+    margin: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s;
-    border: 5px solid green;
+    /* border: 1px solid green; */
 }
 
 .tarjetaIfts:hover {
@@ -76,20 +71,20 @@
 }
 
 .imgTarjetaIfts{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin: auto;
-    background-color: aquamarine;
+  
     border-radius: 10px;
 }
 
 .imgTarjetaIfts img{
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
 }
 
 .divBotonesTarjeta{
-    width: auto;
+    width: 75px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -108,12 +103,15 @@
 
 }
 
-<<<<<<< HEAD
 .seccionOpiniones{
     height: 100%;
     border: 5px solid violet;
     height: 200px;
 }
-=======
->>>>>>> a00a3ec2670d1e7a3d3cae039c2af4c5ffef7bc1
 
+
+@media (max-width: 925px){
+  .SeccionIfts{
+    flex-direction: column;
+  }  
+} 

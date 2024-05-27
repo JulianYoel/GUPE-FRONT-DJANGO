@@ -33,3 +33,6 @@ class CustomUserDeleteForm(forms.ModelForm):
             label='Confirmar eliminación',
             help_text='Marca esta casilla para confirmar que deseas eliminar este usuario.',
         )
+
+class SearchForm(forms.Form):
+    query = forms.CharField(label='Buscar', max_length=100)

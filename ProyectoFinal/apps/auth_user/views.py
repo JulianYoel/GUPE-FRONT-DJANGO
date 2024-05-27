@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter # type: ignore
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client # type: ignore
 from django.views.generic.edit import CreateView
-from django import forms
 from apps.custom_user.models import CustomUser
+from django.views import View
+# from .models import AuthUserProfile
 from .forms import RegistrationForm
 from django.contrib import messages
+import urllib.parse
 
 class RegisterUsuarioView(CreateView):
     model = CustomUser
@@ -28,13 +32,6 @@ class RegisterUsuarioView(CreateView):
 class CustomLoginView(LoginView):
     template_name = 'index.html'  # Especifica el nombre del template de inicio de sesión
 
-    class Meta:
-        model = CustomUser
-        fields = ["email", "password"]
-        widgets = {
-            "email": forms.EmailInput(attrs={"placeholder": "Correo electrónico"}),
-            "password": forms.PasswordInput(attrs={"placeholder": "Contraseña"}),
-        }
     def form_invalid(self, form):
         messages.error(
             self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
@@ -47,23 +44,36 @@ class CustomLogoutView(LogoutView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
-class LogoutConfirmationView(LogoutView):
-    template_name = "index.html"
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+class GoogleLoginView(LoginView):
+    template_name = "google_redirect.html"
 
-class GoogleAuthView(LoginView):
-    template_name = 'g_auth.html'  # Especifica el nombre del template de inicio de sesión
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
-    def form_invalid(self, form):
-        messages.error(
-            self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
-        )  # Mensaje de error
-        return super().form_invalid(form)
-    
- 
+    # class GoogleAdapter(GoogleOAuth2Adapter):
+    #     access_token_url = "https://oauth2.googleapis.com/token"
+    #     authorize_url = "https://accounts.google.com/o/oauth2/v2/auth"
+    #     profile_url = "https://www.googleapis.com/oauth2/v2/userinfo"
+
+    # adapter = GoogleAdapter
+    # callback_url = "http://127.0.0.1:8000/auth/google/"
+    # client = OAuth2Client
+
+    # # def get(self, request, *args, **kwargs):
+    #     # adapter = GoogleAdapter
+    #     # print(adapter)
+
+    #     # client = OAuth2Client
+    #     # authorization_url = self.client.get_redirect_uri(self.adapter.authorize_url)
+    #     # print(self.client)
+    #     # print(self.adapter)
+    #     # google_code = request.GET.get('code')
+    #     # print('google_code:', google_code)
+    #     # code_parsed = urllib.parse.unquote(google_code, safe='~()*!\'')
+    #     # print('code_parsed:', code_parsed)
+    #     # return redirect(self.adapter.authorize_url)
 
 
 

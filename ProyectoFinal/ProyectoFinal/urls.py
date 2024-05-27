@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/auth/login')),
     path('auth/', include("apps.auth_user.urls")),
-    path('auth/', include("allauth.urls")),
     path('', include("apps.custom_user.urls")),
     path('alumno/', include("apps.alumno.urls")),
     path('carrera/', include("apps.carrera.urls")),
@@ -34,8 +33,9 @@ urlpatterns = [
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
     path('feedback/', include("apps.feedback.urls")),
+    path('', include('allauth.urls')),
 ]
-# ... tus otras rutas ...
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

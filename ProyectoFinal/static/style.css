@@ -73,6 +73,7 @@ html, body{
 }
 .loginCardFondo{
   width: 800px;
+  height: 100%;
   background-color: #043652b3;
   color: white;
   display: flex;
@@ -95,7 +96,7 @@ html, body{
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 500px;
+  height: 350px;
   padding: 5px;
   justify-content: space-evenly;
   align-items: center;
@@ -254,9 +255,9 @@ html, body{
     height: 100%;
 
   }
-  /* .encabezado{
+  .encabezado{
     
-  } */
+  }
   
   .textoLogin{
     text-align: right;

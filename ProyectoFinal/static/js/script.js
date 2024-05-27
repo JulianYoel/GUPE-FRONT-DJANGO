@@ -18,66 +18,79 @@ document.getElementById('toggleButton').addEventListener('click', function() {
   });
 });
 
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 
+function handleCredentialResponse(resp) {
+  console.log('resp', resp);
+}
+  
+// Puntaje Tarjeta Opiniones recientes
+const stars = document.querySelectorAll(".star");
+const emojiEl = document.querySelector(".emoji");
+const statusEl = document.querySelector(".status");
+const defaultRatingIndex = 0;
+let currentRatingIndex = 0;
 
-  
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    // Aquí debes enviar los datos de inicio de sesión al backend Django para autenticación
-    // Puedes usar AJAX para enviar la solicitud al servidor
-    // Por ejemplo, utilizando la biblioteca Axios: https://github.com/axios/axios
-    // axios.post('/login', { username: username, password: password })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    alert("Iniciando sesión con: " + username);
-  });
-  
-  document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var regUsername = document.getElementById("regUsername").value;
-    var regPassword = document.getElementById("regPassword").value;
-    var userType = document.getElementById("userType").value;
-    // Aquí debes enviar los datos de registro al backend Django para crear un nuevo usuario
-    // Puedes usar AJAX para enviar la solicitud al servidor
-    // Por ejemplo, utilizando la biblioteca Axios: https://github.com/axios/axios
-    // axios.post('/register', { username: regUsername, password: regPassword, userType: userType })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    alert("Registrando usuario: " + regUsername + ", Contraseña: " + regPassword + ", Tipo: " + userType);
-  });
-  
-  function googleLogin() {
-    // Aquí puedes implementar la lógica para el inicio de sesión con Google
-    // Puedes usar el SDK de Google Sign-In para autenticar al usuario con Google
-    // https://developers.google.com/identity/sign-in/web
-    alert("Iniciando sesión con Google...");
+const ratings = [
+  { emoji: "", name: "Give us rating" },
+  { emoji: "😔", name: "Muy Triste" },
+  { emoji: "🙁", name: "Me Enoja" },
+  { emoji: "🙂", name: "Bien" },
+  { emoji: "🤩", name: "¡Espectacular!" },
+  { emoji: "🥰", name: "G.E.N-IAL" }
+];
+
+const checkSelectedStar = (star) => {
+  if (parseInt(star.getAttribute("data-rate")) === currentRatingIndex) {
+    return true;
+  } else {
+    return false;
   }
-  
-  // menuProfile
-// Script para mostrar/ocultar el menú perfil al hacer clic en la foto de perfil
-document.addEventListener("DOMContentLoaded", function() {
-  // Aquí va tu código JavaScript
-  document.getElementById("profile").addEventListener("click", function() {
-      var menuPerfil = document.getElementById("menuPerfil");
-      if (menuPerfil.style.display === "block") {
-          menuPerfil.style.display = "none";
-      } else {
-          menuPerfil.style.display = "block";
-      }
+};
+
+const setRating = (index) => {
+  stars.forEach((star) => star.classList.remove("selected"));
+  if (index > 0 && index <= stars.length) {
+    document
+      .querySelector('[data-rate="' + index + '"]')
+      .classList.add("selected");
+  }
+  emojiEl.innerHTML = ratings[index].emoji;
+  statusEl.innerHTML = ratings[index].name;
+};
+
+const resetRating = () => {
+  currentRatingIndex = defaultRatingIndex;
+  setRating(defaultRatingIndex);
+};
+
+stars.forEach((star) => {
+  star.addEventListener("click", function () {
+    if (checkSelectedStar(star)) {
+      resetRating();
+      return;
+    }
+    const index = parseInt(star.getAttribute("data-rate"));
+    currentRatingIndex = index;
+    setRating(index);
   });
 
-  document.querySelector(".hamburguesa").addEventListener("click", function() {
-      document.querySelector(".menuGlobal .container").classList.toggle("show");
+  star.addEventListener("mouseover", function () {
+    const index = parseInt(star.getAttribute("data-rate"));
+    setRating(index);
+  });
+
+  star.addEventListener("mouseout", function () {
+    setRating(currentRatingIndex);
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  setRating(defaultRatingIndex);
+});
