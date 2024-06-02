@@ -8,24 +8,34 @@
     /* border: 5px solid red; */
     justify-content: center;
     padding-top: 50px;
+    border: 5px solid rgb(119, 6, 119);
+}
 
-}
-.textoSeccion{
-    width: 30%;
-    background-color: blueviolet;
-    border-radius: 15px;
-    color: white;
-}
-.iftsYopiniones{
-    width: 100%;
-    /* border: 5px solid green; */
+.tituloIFTS{
+    background-color: yellowgreen;
+    border-radius: 10px;
+    height: 500px;
+    text-align: center;
+    align-items: center;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: auto;
+   
+    
+}
+.tituloIFTS h1{
+   
+}
+
+.listaYopinionesIFTS{
+    border: 5px solid rgb(253, 62, 9);
+    width: 70%;
 }
 
 .ifts{
     display: grid;
-    width: 70%;
+    width: 100%;
     border-radius: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
     grid-gap: 20px;  
@@ -37,25 +47,27 @@
     overflow-x: hidden;
     max-height: 500px;
     margin: auto;
+    border: 5px solid rgb(130, 238, 200);
+    
 }
+
 .ulIfts{
     width: auto;
     height: auto;
     list-style: none;
     text-decoration: none;
     padding: 0;
+    padding-top: 40px;
     margin: 0;
     /* border: 1px solid yellow; */
     display: flex;
     justify-content: center;
+    border: 5px solid rgb(200, 137, 11);
 }
 
-
-
 .tarjetaIfts{ 
-   width: 150px;
-   height: 250px;
-   
+   width: 200px;
+   height: 250px;   
     display: flex;
     background-color: #043652;
     border-radius: 10px;
@@ -63,7 +75,10 @@
     margin: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s;
-    /* border: 1px solid green; */
+    border: 3px solid rgb(128, 0, 64);
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .tarjetaIfts:hover {
@@ -73,21 +88,34 @@
 .imgTarjetaIfts{
     width: 100px;
     height: 100px;
-    margin: auto;
-  
     border-radius: 10px;
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-40px);
+    position: relative;
+    z-index: 1;
+    
 }
 
 .imgTarjetaIfts img{
     width: 80px;
     height: 80px;
+    
+}
+
+.tituloInstitucion a{
+    text-decoration: none;
+    border: 2px solid green;
+    color: aliceblue;
 }
 
 .divBotonesTarjeta{
-    width: 75px;
+    width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin: auto;
     gap: 2px;
     justify-content: center;
@@ -103,8 +131,9 @@
 
 }
 
-.seccionOpiniones{
+.opinionesSeccion{
     height: 100%;
+    width: 100%;
     border: 5px solid violet;
     height: 200px;
 }
