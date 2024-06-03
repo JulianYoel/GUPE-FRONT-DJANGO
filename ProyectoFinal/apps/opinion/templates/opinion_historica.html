@@ -7,29 +7,30 @@
 
 {% block title %}Opinión Histórica de {{ model_name|capfirst }}{% endblock %}
 
-{% block content %}
+{% block content %} 
+<h1 class="textoTituloOpinion">Opiniones sobre {{ object_instance.nombre }}</h1>
 <div class="opiniones-historicas">
-    <h1>Opiniones Históricas sobre {{ object_instance.nombre }}</h1>
+   
 
     <section class="seccion-tabla-opinion">
-        <table class="tabla-opiniones">
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Opinión</th>
-                    <th>Calificación</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="tabla-opiniones">
+            <div>
+                <ul class="tituloSeccionesTarjeta">
+                    <li>Usuario</li>
+                    <li>Opinión</li>
+                    <li>Calificación</li>
+                </ul>
+            </div>
+            <div class="grillaOpiniones">
                 {% for opinion in opiniones %}
-                <tr>
-                    <td>{{ opinion.autor }}</td>
-                    <td>{{ opinion.contenido }}</td>
-                    <td>{{ opinion.calificacion }}</td>
-                </tr>
+                <ul class="tarjetaOpinionesHistóricas">
+                    <li class="imgOpinion"><img src="{{ opinion.autor.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></li>
+                    <li>{{ opinion.contenido }}</li>
+                    <li>{{ opinion.calificacion }}</li>
+                </ul>
                 {% endfor %}
-            </tbody>
-        </table>
+            </div>
+        </div>
 
         {% if opinion.has_next %}
             <div id="loadMore" style="cursor: pointer; text-align: center;">Cargar más...</div>

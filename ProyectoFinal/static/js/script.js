@@ -5,7 +5,7 @@ document.getElementById('toggleButton').addEventListener('click', function() {
   var overlay = document.getElementById('overlay');
 
   formContainer.classList.remove('hidden'); // Eliminar la clase hidden
-  registerCard.style.display = 'block'; // Mostrar el cuadro de registro encima
+  registerCard.style.display = 'flex'; // Mostrar el cuadro de registro encima
   overlay.style.display = 'block'; // Mostrar el overlay
   document.body.classList.add('blur'); // Aplicar el efecto de blur a los elementos debajo del overlay
   
