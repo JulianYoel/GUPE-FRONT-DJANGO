@@ -20,18 +20,14 @@
 
 
 .seccion-tabla-opinion{
-    margin-bottom: 20px;
-    padding: 20px;
-    /* border: 5px solid #bfc219; */
     border-radius: 10px;   
     width: 70%;
-    overflow-y: auto;
 }
 
 .tabla-opiniones{
     /* border: 5px solid #4019c2; */
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     /* background-color: #e9ae55; */
 }
 
@@ -41,92 +37,170 @@
     list-style: none;
     display: flex;
     flex-direction: row ;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 .tituloSeccionesTarjeta li {
    padding: 15px;
    margin: 0;
+   min-width: 15%;
+}
+#tituloOpinionGrilla{
+    width:70%;
+
 }
 .tarjetaOpinionesHistóricas{
     background-color: #1e656d;
-    text-align: center;
+    color: #ffffff;
     list-style: none;
     display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+}
+#contenidoOpinionGrilla{
+    width:70%;
+
 }
 .tarjetaOpinionesHistóricas li{
     padding: 15px;
+    min-width: 15%;
 }
 .grillaOpiniones{
-    overflow-y: hidden;
-    overflow-x: auto;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 70vh;
-    border:  5px solid blue;
 }
 
-
-.seccion-tabla-opinion li, .seccion-tabla-opinion li {
-    min-width: 120px;
-
-    text-align: center;
-    /* border: 5px solid #c21981; */
-}
 
 .seccion-opinion-usuario{
-    height: auto;
+    height: 500px;
     width: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    display: flex;
     padding: 20px;
-    border: 1px solid #c4631d;
+    background-color: #520436; 
     border-radius: 10px;
-    background-color: #f8f9fa7a;
+    color: #ffffff;
+
    
 }
 
 .opinion-usuario{
-    border: 5px solid #19c23e;
+    /* border: 5px solid #19c23e; */
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     text-align: center;
+
 
 }
 
 .titulo-y-Box{
     display: flex;
-    flex: 3;
-    justify-content: space-between;
+    height: 20%;
     align-items: center;
     flex-direction: column;
-    border: 5px solid #c219a3;
+    justify-content: space-evenly;
+    /* border: 5px solid #c219a3; */
+   
+
+}
+
+.seccion-opinion-usuario input {
+   border: none;
+   border-bottom: 4px solid #fc7731;
+   box-shadow: none;
+   background-color: #330221;
+   border-radius: 5px;
+   color: #ffffff;
 }
 
 .input-tit{
     max-width: 90%;
 }
 
-.opinion-box{
-    width: 95%;
-    height: 15vh;
-    padding: 10px;
-    border: 1px solid #1d3bc4;
-    border-radius: 10px;
-    background-color: #f8f9fa7a;
+.opinionYbox{
+    /* border: 3px solid red; */
+    display: flex;
+    height: 40%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
 }
 
-.calificacion-box{
-    width: 40%;
-    height: 100%;
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #1d3bc4;
-    border-radius: 10px;
-    background-color: #f8f9fa7a;
+.opinion-box{
+    min-height: 120px;
+    max-height: auto;
+}
+.calificacion-y-submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 30%;
+    /* border: 3px solid red; */
+}
+
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+.calificacion-y-submit button{
+    background-color: transparent;
+    border: 2px solid #fc7731;
+    padding: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100px;
+}
+.calificacion-y-submit button:hover{
+    background-color: #ac267b80;
+    
+}
+
+.calificacion-star{
+  
 }
 
 @media (max-width: 925px){
@@ -135,6 +209,22 @@
     }
     .opinion-usuario{
         flex-direction: column;
-    
     }
+    #tituloOpinionGrilla {
+        width: 42%;
+    }
+    .opiniones-historicas{
+        flex-direction: column-reverse;  
+    }
+    .seccion-tabla-opinion{
+        width: 100%;
+        justify-content: center;
+    }
+    .seccion-opinion-usuario {
+        height: 430px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    
 }
